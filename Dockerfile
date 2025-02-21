@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.21
 
 LABEL org.opencontainers.image.source="https://github.com/maomihz/docker-webdav-nginx"
 
@@ -14,4 +14,6 @@ VOLUME ["/srv"]
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY webdav.conf /etc/nginx/http.d/
+COPY mime.types /etc/nginx/mime.types
+
 CMD ["nginx", "-g", "daemon off;"]
